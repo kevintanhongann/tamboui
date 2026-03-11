@@ -16,10 +16,10 @@ jmh {
     warmupIterations = 2  // Number of warmup iterations
     fork = 1  // Number of forked JVMs
     benchmarkMode = listOf("avgt")  // Average time
-    timeUnit = "ns"  // Nanoseconds
+    timeUnit = "us"  // Microseconds
 
     // Optionally configure specific benchmarks to run
-    includes = listOf(".*fullPipeline.*")
+    includes = listOf(".*renderPipeline.*")
 
     // Profilers: perfnorm shows CPU counters, gc shows allocation rate
     profilers = listOf("perfnorm", "gc")

@@ -24,6 +24,14 @@ import dev.tamboui.text.Span;
  */
 public final class Buffer {
 
+    // Pre-allocated single-char strings for ASCII codepoints to avoid repeated allocation
+    private static final String[] ASCII_STRINGS = new String[128];
+    static {
+        for (int i = 0; i < 128; i++) {
+            ASCII_STRINGS[i] = String.valueOf((char) i);
+        }
+    }
+
     private final Rect area;
     private final Cell[] content;
     private BiConsumer<Style, Rect> styledContentListener;
@@ -248,16 +256,17 @@ public final class Buffer {
                             // No room for 2-wide flag, replace with space
                             if (col >= area.left()) {
                                 Cell existing = get(col, y);
-                                set(col, y, existing.patchStyle(style).symbol(" "));
+                                set(col, y, new Cell(" ", existing.style().patch(style)));
                             }
                             col++;
                         } else if (col >= area.left()) {
                             Cell current = get(col, y);
                             if (current.isContinuation() && col > area.left()) {
-                                set(col - 1, y, get(col - 1, y).symbol(" "));
+                                Cell prev = get(col - 1, y);
+                                set(col - 1, y, new Cell(" ", prev.style()));
                             }
                             Cell existing = get(col, y);
-                            set(col, y, existing.patchStyle(style).symbol(flag));
+                            set(col, y, new Cell(flag, existing.style().patch(style)));
                             set(col + 1, y, Cell.CONTINUATION);
                             col += 2;
                         }
@@ -282,13 +291,13 @@ public final class Buffer {
             }
             appendToLast = false;
 
-            String symbol = new String(Character.toChars(codePoint));
+            String symbol = codePoint < 128 ? ASCII_STRINGS[codePoint] : new String(Character.toChars(codePoint));
 
             if (charWidth == 2 && col + 1 >= area.right()) {
                 // Wide char at rightmost column: no room for continuation, replace with space
                 if (col >= area.left()) {
                     Cell existing = get(col, y);
-                    set(col, y, existing.patchStyle(style).symbol(" "));
+                    set(col, y, new Cell(" ", existing.style().patch(style)));
                 }
                 col++;
                 i += Character.charCount(codePoint);
@@ -299,7 +308,8 @@ public final class Buffer {
                 // When overwriting a continuation cell, clear the preceding wide char
                 Cell current = get(col, y);
                 if (current.isContinuation() && col > area.left()) {
-                    set(col - 1, y, get(col - 1, y).symbol(" "));
+                    Cell prev = get(col - 1, y);
+                    set(col - 1, y, new Cell(" ", prev.style()));
                 }
 
                 // If this is a wide char, check if the next cell is also a continuation of something
@@ -312,8 +322,7 @@ public final class Buffer {
                 }
 
                 Cell existing = get(col, y);
-                Cell newCell = existing.patchStyle(style).symbol(symbol);
-                set(col, y, newCell);
+                set(col, y, new Cell(symbol, existing.style().patch(style)));
 
                 // Place continuation cell for wide characters
                 if (charWidth == 2) {
