@@ -1239,13 +1239,13 @@ public static SpinnerElement spinner(SpinnerStyle style, String label) {
  * This is useful for creating custom grid-based animations using Braille characters.
  *
  * <pre>{@code
- * animatedGrid("⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧").cyan()
+ * spinner("⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧").cyan()
  * }</pre>
  *
  * @param frames the animation frames
  * @return a new spinner element with the custom frames
  */
-public static SpinnerElement animatedGrid(String... frames) {
+public static SpinnerElement spinner(String... frames) {
     SpinnerElement element = new SpinnerElement();
     element.frames(frames);
     return element;

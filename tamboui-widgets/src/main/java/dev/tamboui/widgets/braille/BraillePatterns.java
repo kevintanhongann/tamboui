@@ -8,25 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Frame generators for Braille-based animations.
+ * Static frame patterns for Braille-based animations.
  * <p>
- * Each generator creates an array of frame strings that can be used
+ * Each pattern provides an array offrame strings that can be used
  * with the Spinner widget or SpinnerFrameSet.
  * <p>
- * The generators are ported from the unicode-animations TypeScript library.
+ * The patterns are ported from the unicode-animations TypeScript library.
  */
-public final class BrailleGridFrames {
+public final class BraillePatterns {
 
-    private BrailleGridFrames() {
+    private BraillePatterns() {
     }
 
-/**
- * Generates scan animation frames (10 frames).
- * A horizontal scanning line moves across the grid.
- *
- * @return an array of 10 frame strings
- */
-public static String[] genScan() {
+    /**
+     * Returns scan animation frames (10 frames).
+     * A horizontal scanning line moves across the grid.
+     *
+     * @return an array of 10 frame strings
+     */
+    public static String[] scan() {
         return new String[] {
             "\u283f\u2800\u2800",
             "\u283f\u2800\u2800",
@@ -41,13 +41,13 @@ public static String[] genScan() {
         };
     }
 
-/**
- * Generates rain animation frames (12 frames).
- * Falling dots with staggered offsets.
- *
- * @return an array of 12 frame strings
- */
-public static String[] genRain() {
+    /**
+     * Returns rain animation frames (12 frames).
+     * Falling dots with staggered offsets.
+     *
+     * @return an array of 12 frame strings
+     */
+    public static String[] rain() {
         return new String[] {
             "\u280b",
             "\u2819",
@@ -64,13 +64,13 @@ public static String[] genRain() {
         };
     }
 
-/**
- * Generates scanline animation frames (6 frames).
- * A vertical scan with fade effect.
- *
- * @return an array of 6 frame strings
- */
-public static String[] genScanLine() {
+    /**
+     * Returns scanline animation frames (6 frames).
+     * A vertical scan with fade effect.
+     *
+     * @return an array of 6 frame strings
+     */
+    public static String[] scanLine() {
         return new String[] {
             "\u2801",
             "\u2803",
@@ -81,13 +81,13 @@ public static String[] genScanLine() {
         };
     }
 
-/**
- * Generates pulse animation frames (5 frames).
- * Expanding/contracting circle pattern.
- *
- * @return an array of 5 frame strings
- */
-public static String[] genPulse() {
+    /**
+     * Returns pulse animation frames (5 frames).
+     * Expanding/contracting circle pattern.
+     *
+     * @return an array of 5 frame strings
+     */
+    public static String[] pulse() {
         return new String[] {
             "\u2801",
             "\u2803",
@@ -97,13 +97,13 @@ public static String[] genPulse() {
         };
     }
 
-/**
- * Generates snake animation frames (16 frames).
- * A snake-like path animation.
- *
- * @return an array of 16 frame strings
- */
-public static String[] genSnake() {
+    /**
+     * Returns snake animation frames (16 frames).
+     * A snake-like path animation.
+     *
+     * @return an array of 16 frame strings
+     */
+    public static String[] snake() {
         return new String[] {
             "\u2801",
             "\u2803",
@@ -124,13 +124,13 @@ public static String[] genSnake() {
         };
     }
 
-/**
- * Generates sparkle animation frames (6 frames).
- * Sparkle patterns with rotation.
- *
- * @return an array of 6 frame strings
- */
-public static String[] genSparkle() {
+    /**
+     * Returns sparkle animation frames (6 frames).
+     * Sparkle patterns with rotation.
+     *
+     * @return an array of 6 frame strings
+     */
+    public static String[] sparkle() {
         return new String[] {
             "\u2800\u2800\u2800",
             "\u2800\u2800\u2801",
@@ -141,13 +141,13 @@ public static String[] genSparkle() {
         };
     }
 
-/**
- * Generates cascade animation frames (12 frames).
- * Diagonal cascade pattern.
- *
- * @return an array of 12 frame strings
- */
-public static String[] genCascade() {
+    /**
+     * Returns cascade animation frames (12 frames).
+     * Diagonal cascade pattern.
+     *
+     * @return an array of 12 frame strings
+     */
+    public static String[] cascade() {
         return new String[] {
             "\u2808",
             "\u2800\u2800",
@@ -164,13 +164,13 @@ public static String[] genCascade() {
         };
     }
 
-/**
- * Generates columns animation frames (26 frames).
- * Column fill animation with all dot combinations.
- *
- * @return an array of 26 frame strings
- */
-public static String[] genColumns() {
+    /**
+     * Returns columns animation frames (26 frames).
+     * Column fill animation with all dot combinations.
+     *
+     * @return an array of 26 frame strings
+     */
+    public static String[] columns() {
         return new String[] {
             "\u2801",
             "\u2802",
@@ -201,13 +201,13 @@ public static String[] genColumns() {
         };
     }
 
-/**
- * Generates orbit animation frames (8 frames).
- * Orbiting dot around a center point.
- *
- * @return an array of 8 frame strings
- */
-public static String[] genOrbit() {
+    /**
+     * Returns orbit animation frames (8 frames).
+     * Orbiting dot around a center point.
+     *
+     * @return an array of 8 frame strings
+     */
+    public static String[] orbit() {
         return new String[] {
             "\u2801",
             "\u2803",
@@ -220,13 +220,13 @@ public static String[] genOrbit() {
         };
     }
 
-/**
- * Generates breathe animation frames (18 frames).
- * Breathing/pulsing dots that expand and contract.
- *
- * @return an array of 18 frame strings
- */
-public static String[] genBreathe() {
+    /**
+     * Returns breathe animation frames (18 frames).
+     * Breathing/pulsing dots that expand and contract.
+     *
+     * @return an array of 18 frame strings
+     */
+    public static String[] breathe() {
         return new String[] {
             " ",
             "\u2801",
@@ -249,13 +249,13 @@ public static String[] genBreathe() {
         };
     }
 
-/**
- * Generates wave rows animation frames (16 frames).
- * A wave that moves across multiple rows.
- *
- * @return an array of 16 frame strings
- */
-public static String[] genWaveRows() {
+    /**
+     * Returns wave rows animation frames (16 frames).
+     * A wave that moves across multiple rows.
+     *
+     * @return an array of 16 frame strings
+     */
+    public static String[] waveRows() {
         return new String[] {
             "\u2800\u2800",
             "\u2800\u2801",
@@ -276,13 +276,13 @@ public static String[] genWaveRows() {
         };
     }
 
-/**
- * Generates checkerboard animation frames (4 frames).
- * Checkerboard toggle pattern.
- *
- * @return an array of 4 frame strings
- */
-public static String[] genCheckerboard() {
+    /**
+     * Returns checkerboard animation frames (4 frames).
+     * Checkerboard toggle pattern.
+     *
+     * @return an array of 4 frame strings
+     */
+    public static String[] checkerboard() {
         return new String[] {
             "\u2801\u2803",
             "\u2805\u2807",
@@ -291,13 +291,13 @@ public static String[] genCheckerboard() {
         };
     }
 
-/**
- * Generates helix animation frames (16 frames).
- * Double helix wave pattern.
- *
- * @return an array of 16 frame strings
- */
-public static String[] genHelix() {
+    /**
+     * Returns helix animation frames (16 frames).
+     * Double helix wave pattern.
+     *
+     * @return an array of 16 frame strings
+     */
+    public static String[] helix() {
         return new String[] {
             "\u28ff\u283e",
             "\u283e\u283d",
@@ -318,13 +318,13 @@ public static String[] genHelix() {
         };
     }
 
-/**
- * Generates fill sweep animation frames (11 frames).
- * Fill sweep from left to right.
- *
- * @return an array of 11 frame strings
- */
-public static String[] genFillSweep() {
+    /**
+     * Returns fill sweep animation frames (11 frames).
+     * Fill sweep from left to right.
+     *
+     * @return an array of 11 frame strings
+     */
+    public static String[] fillSweep() {
         return new String[] {
             " ",
             "\u2801",
@@ -340,13 +340,13 @@ public static String[] genFillSweep() {
         };
     }
 
-/**
- * Generates diagonal swipe animation frames (16 frames).
- * Diagonal fill and unfill pattern.
- *
- * @return an array of 16 frame strings
- */
-public static String[] genDiagonalSwipe() {
+    /**
+     * Returns diagonal swipe animation frames (16 frames).
+     * Diagonal fill and unfill pattern.
+     *
+     * @return an array of 16 frame strings
+     */
+    public static String[] diagonalSwipe() {
         return new String[] {
             " ",
             "\u2801",
@@ -367,13 +367,13 @@ public static String[] genDiagonalSwipe() {
         };
     }
 
-/**
- * Generates braille wave animation frames (8 frames).
- * Multi-character wave animation.
- *
- * @return an array of 8 frame strings
- */
-public static String[] genBrailleWave() {
+    /**
+     * Returns braille wave animation frames (8 frames).
+     * Multi-character wave animation.
+     *
+     * @return an array of 8 frame strings
+     */
+    public static String[] brailleWave() {
         return new String[] {
             "\u2801\u2802\u2804\u2800",
             "\u2802\u2804\u2800\u2800",
@@ -386,13 +386,13 @@ public static String[] genBrailleWave() {
         };
     }
 
-/**
- * Generates DNA helix animation frames (12 frames).
- * Double helix pattern with dot combinations.
- *
- * @return an array of 12 frame strings
- */
-public static String[] genDna() {
+    /**
+     * Returns DNA helix animation frames (12 frames).
+     * Double helix pattern with dot combinations.
+     *
+     * @return an array of 12 frame strings
+     */
+    public static String[] dna() {
         return new String[] {
             "\u280b\u2809\u2819\u281a",
             "\u2809\u2819\u281a\u2812",
@@ -410,39 +410,39 @@ public static String[] genDna() {
     }
 
     /**
-     * Creates a SpinnerFrameSet from a generator method.
+     * Creates a SpinnerFrameSet from a frame array.
      *
-     * @param generator the frame generator to use
-     * @return a SpinnerFrameSet containing the generated frames
+     * @param frames the frame array to use
+     * @return a SpinnerFrameSet containing the frames
      */
-    public static dev.tamboui.widgets.spinner.SpinnerFrameSet of(String[] generator) {
-        return dev.tamboui.widgets.spinner.SpinnerFrameSet.of(generator);
+    public static dev.tamboui.widgets.spinner.SpinnerFrameSet of(String[] frames) {
+        return dev.tamboui.widgets.spinner.SpinnerFrameSet.of(frames);
     }
 
     /**
-     * Gets all available frame generators.
+     * Gets all available frame patterns.
      *
-     * @return a list of generator method names
+     * @return a list of pattern method names
      */
-    public static List<String> availableGenerators() {
-        List<String> generators = new ArrayList<>();
-        generators.add("genScan");
-        generators.add("genRain");
-        generators.add("genScanLine");
-        generators.add("genPulse");
-        generators.add("genSnake");
-        generators.add("genSparkle");
-        generators.add("genCascade");
-        generators.add("genColumns");
-        generators.add("genOrbit");
-        generators.add("genBreathe");
-        generators.add("genWaveRows");
-        generators.add("genCheckerboard");
-        generators.add("genHelix");
-        generators.add("genFillSweep");
-        generators.add("genDiagonalSwipe");
-        generators.add("genBrailleWave");
-        generators.add("genDna");
-        return generators;
+    public static List<String> availablePatterns() {
+        List<String> patterns = new ArrayList<>();
+        patterns.add("scan");
+        patterns.add("rain");
+        patterns.add("scanLine");
+        patterns.add("pulse");
+        patterns.add("snake");
+        patterns.add("sparkle");
+        patterns.add("cascade");
+        patterns.add("columns");
+        patterns.add("orbit");
+        patterns.add("breathe");
+        patterns.add("waveRows");
+        patterns.add("checkerboard");
+        patterns.add("helix");
+        patterns.add("fillSweep");
+        patterns.add("diagonalSwipe");
+        patterns.add("brailleWave");
+        patterns.add("dna");
+        return patterns;
     }
 }

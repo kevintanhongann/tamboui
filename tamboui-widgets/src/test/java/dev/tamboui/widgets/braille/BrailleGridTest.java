@@ -110,32 +110,32 @@ class BrailleGridTest {
     }
 
     @Test
-    @DisplayName("BrailleGridFrames generators return non-empty arrays")
-    void frameGeneratorsReturnNonEmpty() {
-        assertThat(BrailleGridFrames.genScan()).hasSize(10);
-        assertThat(BrailleGridFrames.genRain()).hasSize(12);
-        assertThat(BrailleGridFrames.genScanLine()).hasSize(6);
-        assertThat(BrailleGridFrames.genPulse()).hasSize(5);
-        assertThat(BrailleGridFrames.genSnake()).hasSize(16);
-        assertThat(BrailleGridFrames.genSparkle()).hasSize(6);
-        assertThat(BrailleGridFrames.genCascade()).hasSize(12);
-        assertThat(BrailleGridFrames.genColumns()).hasSize(26);
-        assertThat(BrailleGridFrames.genOrbit()).hasSize(8);
-        assertThat(BrailleGridFrames.genBreathe()).hasSize(18);
-        assertThat(BrailleGridFrames.genWaveRows()).hasSize(16);
-        assertThat(BrailleGridFrames.genCheckerboard()).hasSize(4);
-        assertThat(BrailleGridFrames.genHelix()).hasSize(16);
-        assertThat(BrailleGridFrames.genFillSweep()).hasSize(11);
-        assertThat(BrailleGridFrames.genDiagonalSwipe()).hasSize(16);
-        assertThat(BrailleGridFrames.genBrailleWave()).hasSize(8);
-        assertThat(BrailleGridFrames.genDna()).hasSize(12);
+    @DisplayName("BraillePatterns patterns return non-empty arrays")
+    void framePatternsReturnNonEmpty() {
+        assertThat(BraillePatterns.scan()).hasSize(10);
+        assertThat(BraillePatterns.rain()).hasSize(12);
+        assertThat(BraillePatterns.scanLine()).hasSize(6);
+        assertThat(BraillePatterns.pulse()).hasSize(5);
+        assertThat(BraillePatterns.snake()).hasSize(16);
+        assertThat(BraillePatterns.sparkle()).hasSize(6);
+        assertThat(BraillePatterns.cascade()).hasSize(12);
+        assertThat(BraillePatterns.columns()).hasSize(26);
+        assertThat(BraillePatterns.orbit()).hasSize(8);
+        assertThat(BraillePatterns.breathe()).hasSize(18);
+        assertThat(BraillePatterns.waveRows()).hasSize(16);
+        assertThat(BraillePatterns.checkerboard()).hasSize(4);
+        assertThat(BraillePatterns.helix()).hasSize(16);
+        assertThat(BraillePatterns.fillSweep()).hasSize(11);
+        assertThat(BraillePatterns.diagonalSwipe()).hasSize(16);
+        assertThat(BraillePatterns.brailleWave()).hasSize(8);
+        assertThat(BraillePatterns.dna()).hasSize(12);
     }
 
     @Test
-    @DisplayName("BrailleGridFrames.of creates valid SpinnerFrameSet")
+    @DisplayName("BraillePatterns.of creates valid SpinnerFrameSet")
     void ofCreatesValidSpinnerFrameSet() {
-        String[] frames = BrailleGridFrames.genHelix();
-        SpinnerFrameSet frameSet = BrailleGridFrames.of(frames);
+        String[] frames = BraillePatterns.helix();
+        SpinnerFrameSet frameSet = BraillePatterns.of(frames);
 
         assertThat(frameSet.frameCount()).isEqualTo(frames.length);
         assertThat(frameSet.frame(0)).isEqualTo(frames[0]);
@@ -143,8 +143,8 @@ class BrailleGridTest {
     }
 
     @Test
-    @DisplayName("availableGenerators lists all generators")
-    void availableGenerators() {
-        assertThat(BrailleGridFrames.availableGenerators()).hasSize(17);
+    @DisplayName("availablePatterns lists all patterns")
+    void availablePatterns() {
+        assertThat(BraillePatterns.availablePatterns()).hasSize(17);
     }
 }
